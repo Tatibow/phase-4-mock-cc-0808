@@ -11,7 +11,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
     def show
         camper = Camper.find(params[:id])
-        render json: camper, status: :ok
+        render json: camper, serializer: CamperActivitySerializer, status: :ok
     end
 
     #Create
@@ -28,8 +28,8 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
         render json: {error: "Camper not found"}, status: :not_found
     end
 
-    def render_record_invalid(invalid)
-        render json: {errors: invalid.record.errors.full_message}, status: :unprocessable_entity
+    def render_record_invalid
+        render json: {errors:["invalid record"]}, status: :unprocessable_entity
     end
 
     #camper params

@@ -21,7 +21,7 @@ class ActivitiesController < ApplicationController
 
     #error handling helpers
     def render_not_found
-        render json: {error: "Camper not found"}, status: :not_found
+        render json: {error: "Activity not found"}, status: :not_found
     end
 
 end

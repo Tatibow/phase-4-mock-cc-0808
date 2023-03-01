@@ -10,18 +10,18 @@ class SignupsController < ApplicationController
     #Create
     def create
         new_signup = Signup.create!(signup_params)
-        render json: new_signup, status: :created
+        render json: new_signup.activity, status: :created
     end
 
     #private area
     private
 
     def signup_params
-        param.permit(:time, :camper_id, :activity_id)
+        params.permit(:time, :camper_id, :activity_id)
     end
 
      #error handling helpers
-     def render_record_invalid(invalid)
-        render json: {errors: invalid.record.errors.full_message}, status: :unprocessable_entity
+     def render_record_invalid
+        render json: {errors: ["invalid record"]}, status: :unprocessable_entity
     end
 end

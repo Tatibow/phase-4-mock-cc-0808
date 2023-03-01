@@ -5,6 +5,6 @@ class Camper < ApplicationRecord
 
     #validations
     validates :name, presence: true
-    validates :age, numericality: { in: 8..18 }
-
+    validates :age, inclusion: 8..18 
+  #inclusion
 end

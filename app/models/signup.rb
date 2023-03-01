@@ -4,5 +4,5 @@ class Signup < ApplicationRecord
     belongs_to :activity
 
     #validations
-    validates :time, numericality: { in: 0..23 }
+    validates :time, inclusion: 0..23
 end
